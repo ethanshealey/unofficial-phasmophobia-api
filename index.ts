@@ -5,6 +5,8 @@ import generateCursedPosessions from './helpers/generateCursedPosessions'
 import Ghost from './models/Ghost'
 import CursedPossession from './models/CursedPossession'
 const cors = require('cors')
+const path = require('path')
+const fs = require('fs')
 
 const app = express()
 const port = 3000
@@ -13,7 +15,7 @@ app.use(cors())
 app.use(json())
 
 app.get('/', (req: Request, res: Response) => {
-    res.send({ message: 'Hello! You\'ve reached my unofficial Phasmophobia API! To get started, go to https://github.com/ethanshealey/unofficial-phasmophobia-api' })
+    res.sendFile(path.join(__dirname, '/index.html'))
 })
 
 app.get('/api/v1/ghosts', (req: Request, res: Response) => {

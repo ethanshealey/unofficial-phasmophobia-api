@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Unoffical Phasmophobia API</title>
+        <style>
+            body, html {
+                background-color: #0d1117;
+                color: #e6edf3;
+                font-family: 'Courier New', Courier, monospace;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100vw;
+            }
+            pre {
+                background-color: #161b22;
+                padding: 10px;
+                border-radius: 10px;
+                width: 60%;
+            }
+            h1, p, h3 {
+                width: 60%;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="unofficial-phasmophobia-api">Unofficial Phasmophobia Api</h1>
+        <p>Welcome to my unofficial Phasmophobia API!</p>
+        <h3 id="routes">Routes</h3>
+<pre><code><span class="hljs-symbol">GET</span> /api/<span class="hljs-built_in">v1</span>/ghosts</code></pre>
+        <p>Returns a list of all the ghost types in the game</p>
+        <p>Response:</p>
+<pre><code class="lang-yaml">[
+    {
+        name: <span class="hljs-built_in">string</span>,
+        evidence: Evidence[],
+        abilitie<span class="hljs-variable">s:</span> <span class="hljs-built_in">string</span>[],
+        strength: <span class="hljs-built_in">string</span>,
+        weaknes<span class="hljs-variable">s:</span> <span class="hljs-built_in">string</span>,
+        strategies?: <span class="hljs-built_in">string</span>[]
+        identification?: <span class="hljs-built_in">string</span>[]
+    }
+]
+</code></pre>
+        <hr>
+<pre><code>GET <span class="hljs-regexp">/api/</span>v1<span class="hljs-regexp">/ghosts/</span>:name</code></pre>
+        <p>Returns details on the specified ghost type</p>
+        <p>Response:</p>
+<pre><code class="lang-yaml">{
+    name: <span class="hljs-built_in">string</span>,
+    evidence: Evidence[],
+    abilitie<span class="hljs-variable">s:</span> <span class="hljs-built_in">string</span>[],
+    strength: <span class="hljs-built_in">string</span>,
+    weaknes<span class="hljs-variable">s:</span> <span class="hljs-built_in">string</span>,
+    strategies?: <span class="hljs-built_in">string</span>[]
+    identification?: <span class="hljs-built_in">string</span>[]
+}
+</code></pre>
+        <hr>
+<pre><code><span class="hljs-symbol">GET</span> /api/<span class="hljs-built_in">v1</span>/cursed-possessions</code></pre>
+        <p>Returns a list of all cursed possessions in the game</p>
+        <p>Response:</p>
+        <pre><code class="lang-yaml">[
+    {
+        <span class="hljs-built_in">name</span>: <span class="hljs-built_in">string</span>,
+        description: <span class="hljs-built_in">string</span>,
+        interactions?: CursedPossessionInteractions[],
+        tips?: <span class="hljs-built_in">string</span>[]
+    }
+]
+</code></pre>
+        <hr>
+        <pre><code>GET <span class="hljs-regexp">/api/</span>v1<span class="hljs-regexp">/cursed-possessions/</span>:name</code></pre>
+        <p>Returns details on the specified cursed possession</p>
+        <p>Response:</p>
+<pre><code class="lang-yaml">{
+    <span class="hljs-built_in">name</span>: <span class="hljs-built_in">string</span>,
+    description: <span class="hljs-built_in">string</span>,
+    interactions?: CursedPossessionInteractions[],
+    tips?: <span class="hljs-built_in">string</span>[]
+}
+</code></pre>
+        <p><br><br></p>
+        <h3 id="types">Types</h3>
+        <pre><code class="lang-yaml"><span class="hljs-built_in">type</span> Ghost = {
+    name: <span class="hljs-built_in">string</span>,
+    evidence: Evidence[],
+    abilitie<span class="hljs-variable">s:</span> <span class="hljs-built_in">string</span>[]
+    strength: <span class="hljs-built_in">string</span>,
+    weaknes<span class="hljs-variable">s:</span> <span class="hljs-built_in">string</span>,
+    strategies?: <span class="hljs-built_in">string</span>[]
+    identification?: <span class="hljs-built_in">string</span>[]
+}
+</code></pre>
+        <pre><code class="lang-yaml"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">Evidence</span> = {</span>
+    ORB = <span class="hljs-string">'orb'</span>,
+    EMF = <span class="hljs-string">'emf'</span>,
+    ULTRA = <span class="hljs-string">'ultra'</span>,
+    <span class="hljs-symbol">  WRITING:</span> <span class="hljs-string">'writing'</span>,
+    <span class="hljs-symbol">  FREEZING:</span> <span class="hljs-string">'freezing'</span>,
+    DOTS = <span class="hljs-string">'dots'</span>,
+    BOX = <span class="hljs-string">'box'</span>
+}
+</code></pre>
+        <pre><code class="lang-yaml">type CursedPossession = {
+    <span class="hljs-built_in">name</span>: <span class="hljs-built_in">string</span>,
+    description: <span class="hljs-built_in">string</span>,
+    interactions?: CursedPossessionInteractions
+    tips?: <span class="hljs-built_in">string</span>
+}
+</code></pre>
+        <pre><code class="lang-yaml"><span class="hljs-built_in">type</span> CursedPossessionInteractions = {
+    <span class="hljs-built_in">type</span>: <span class="hljs-built_in">string</span>,
+    interaction<span class="hljs-variable">s:</span> <span class="hljs-built_in">string</span>[]
+}
+</code></pre>        
+    </body>
+</html>
