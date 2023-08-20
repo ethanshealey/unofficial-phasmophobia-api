@@ -74,6 +74,7 @@ Response:
 }
 ```
 
+<br><br>
 
 ### Types
 
