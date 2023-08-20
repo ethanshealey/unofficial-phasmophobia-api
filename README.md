@@ -73,3 +73,49 @@ Response:
   tips?: string[]
 }
 ```
+
+
+### Types
+
+```yaml
+type Ghost = {
+  name: string,
+  evidence: Evidence[],
+  abilities: string[]
+  strength: string,
+  weakness: string,
+  strategies?: string[]
+  identification?: string[]
+}
+```
+
+
+```yaml
+enum Evidence = {
+  ORB = 'orb',
+  EMF = 'emf',
+  ULTRA = 'ultra',
+  WRITING: 'writing',
+  FREEZING: 'freezing',
+  DOTS = 'dots',
+  BOX = 'box'
+}
+```
+
+
+```yaml
+type CursedPossession = {
+  name: string,
+  description: string,
+  interactions?: CursedPossessionInteractions
+  tips?: string
+}
+```
+
+
+```yaml
+type CursedPossessionInteractions = {
+  type: string,
+  interactions: string[]
+}
+```
